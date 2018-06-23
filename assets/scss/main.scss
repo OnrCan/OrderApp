@@ -1,5 +1,13 @@
 // Helpers
 @import "helpers/normalize/import-now";
 
+// Configurations
+@import "config/variables";
+
+// Globals
+// 
+@import "global/header";
+@import "global/global";
+
 // Pages
 @import "pages/index";
