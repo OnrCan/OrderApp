@@ -5,7 +5,19 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'OrderApp',
-    page: 'Anasayfa'
+    pagename: 'Anasayfa',
+    category: {
+      name: 'Ana Yemekler',
+      shortSlogan: 'Damak tadınıza göre...',
+      foods: [
+        {
+          id: 1,
+          name: "Gurme Tabağı",
+          category: "Sebze",
+          price: 19.00
+        }
+      ]
+    }
   });
 });
 

@@ -7,7 +7,10 @@
 	font-weight: 400;
 }
 body {
+	display: grid;
 	background-color: #fbfbfb;
+	padding: 0 calc(#{$finger-size / 2});
+	padding-bottom: 20px;
 }
 .rating-stars-container {
 	width: 70px;
@@ -20,5 +23,104 @@ body {
 		height: 10px;
 
 		img { float: left; }
+	}
+}
+.menu-category {
+	margin-top: 20px;
+
+	.category-name-heading {
+		margin: 0;
+		margin-bottom: 5px;
+		font-size: 1em;
+		font-family: Asap-SemiBold, Helvetica, sans-serif;
+		color: $heading-color;
+		text-transform: uppercase;
+	}
+
+	.category-short-slogan {
+		display: block;
+		margin-bottom: 10px;
+		font-family: Asap-Regular, Helvetica, sans-serif;
+		font-size: 14px;
+		color: $subheading-color;
+	}
+
+	.foods-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 20px;
+
+		.food-card {
+			overflow: hidden;
+			display: grid;
+			grid-template-columns: 18px 1fr 18px;
+			grid-template-rows: 50% 30% 20%; 
+			height: 220px;
+			background-color: #FFF;
+			border-radius: $card-border-radius;
+			box-shadow: $card-box-shadow;
+
+			img.food-card__image {
+				grid-column: 1 / span 3;
+				grid-row: 1;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				box-shadow: $image-box-shadow;
+			}
+
+			.food-card__info {
+				grid-column: 2;
+				grid-row: 2;
+				padding: 15px 0 10px 0;
+
+				.food-card__name {
+					margin: 0;
+					margin-bottom: 5px;
+					font-family: $heading-font-family;
+					font-size: 14px;
+					color: $heading-color;
+				}
+
+				.food-card__category {
+					font-family: Asap-Regular, Helvetica, sans-serif;
+					font-size: 12px;
+					color: $green;
+					text-transform: uppercase;
+				}
+			}
+			
+			.food-card--footer {
+				grid-column: 1 / span 3;
+				grid-row: 3;
+				padding: 0 18px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				border-top: 1px solid rgba(151,151,151,0.15);
+
+				.food-card__price {
+					display: block;
+					font-family: Asap-Regular, Helvetica, sans-serif;
+					font-size: 14px;
+					color: $dark-orange;
+				}
+				.food-card--add-to {
+					// width: 20px;
+					// height: 20px;
+					padding: 3px;
+					background: $dark-orange;
+					border-color: transparent;
+					border-radius: $card-border-radius;;
+					box-shadow: 0 2px 5px 0 $dark-orange;
+
+					svg {
+						height: 20px;
+						vertical-align: middle;
+						fill: white;
+					}
+				}
+			}
+		}
 	}
 }

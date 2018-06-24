@@ -2,7 +2,7 @@ section.featured-menus {
 	display: flex;
 	align-items: center;
 	position: relative;
-	margin: 0 calc(#{$finger-size} / 2);
+	margin-bottom: 20px;
 	padding: 10px 0;
 	height: 130px;
 	background: #FFF;
@@ -21,7 +21,7 @@ section.featured-menus {
 		a.see-featured-menu { 
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
+			justify-content: space-evenly;
 			position: absolute;
 			right: 0;
 			bottom: 0;

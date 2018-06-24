@@ -2,7 +2,7 @@ $finger-size: 45px;
 
 // Cards
 $card-border-radius: 2px;
-$card-box-shadow: 0 2 6 0; 
+$card-box-shadow: 0 2px 6px 0 rgba(0,0,0,0.06); 
 $big-card-box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05); 
 
 // Buttons
@@ -10,4 +10,13 @@ $button-box-shadow: 0 3px 9px 0;
 
 // Colors
 $dark-orange: #DC8948;
+$green: #A0B572;
 $box-shadow-dark-orange: rgba(220,137,72,0.46);
+$heading-color: #212924;
+$subheading-color: #C4BCBC;
+
+// Images
+$image-box-shadow: 0 2px 10px 0 rgba(0,0,0,0.35);
+
+// Fonts
+$heading-font-family: Asap-SemiBold, Helvetica, sans-serif; 

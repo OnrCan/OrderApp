@@ -1,24 +1,39 @@
-header.header-with-menu {
+header.header-with-menu,
+header.header-subpage {
 	height: calc(#{$finger-size} / 2);
-	padding: calc(#{$finger-size} / 2);
+	padding: calc(#{$finger-size} / 2) 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	
 	#hamburger-menu,
-	#favorites {
+	.favorites {
 		width: $finger-size;
 		height: $finger-size;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 
-		img {width: 50%;}
+		svg {
+			height: 40%;
+
+			path {
+				fill: #DF0B0B;
+			}
+		}
 	}
+
 	#hamburger-menu { justify-content: flex-start; }
-	#favorites { justify-content: flex-end; }
-	.page {
+	
+	.favorites { justify-content: flex-end; }
+	
+	.pagename {
 		color: #272e2a;
 		font-family: Asap-SemiBold, Helvetica, sans-serif;
+		font-size: 1em;
+	}
+
+	.back-link {
+		svg { height: 85%; }
 	}
 }
