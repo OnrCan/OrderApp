@@ -40,7 +40,21 @@ header.header-subpage {
 		text-transform: uppercase;
 	}
 
-	.back-link {
+	#back-link {
+		position: relative;
+		display: flex;
+		align-items: center;
+		width: $finger-size;
+		height: $finger-size;
+    	margin-left: -10px;
 		svg { height: 85%; }
+		svg > path { fill: #FFF; }
 	}
+}
+
+header.header-subpage {
+	position: absolute;
+	width: calc(100% - #{$finger-size});
+	padding: calc(#{$finger-size} / 2);
+	z-index: 9;
 }

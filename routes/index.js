@@ -5,7 +5,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'OrderApp',
-    pagename: 'Anasayfa',
+    page: {
+      heading: 'Anasayfa'
+    },
     category: {
       name: 'Ana Yemekler',
       shortSlogan: 'Damak tadınıza göre...',

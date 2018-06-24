@@ -1,13 +1,14 @@
 extends layout
 
 block content
-  //- Header
-  include ./components/header.jade
+  .wrapper
+    //- Header
+    include ./components/header.jade
 
-  //- Featured Foods
-  include ./components/featured.jade
+    //- Featured Foods
+    include ./components/featured.jade
 
-  //- Category Main Dish
-  include ./components/categories-layout.jade
+    //- Category Main Dish
+    include ./components/categories-layout.jade
 
   script(src="dist/js/main.js")

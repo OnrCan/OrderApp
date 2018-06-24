@@ -1,0 +1,83 @@
+section.food-page {
+	.food-banner {
+		display: flex;
+		position: relative;
+		height: 315px;
+		width: 100%;
+		margin-bottom: 10px;
+
+		.food-banner__image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			z-index: -9;
+		}
+
+		.food-banner__info {
+			flex: 1;
+			display: flex;
+
+			.food-banner__overlay {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				opacity: 0.51;
+				background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 70%, $dark-orange 100%);
+				z-index: 1;
+			}
+
+			.wrapper {
+				flex: 1;
+				display: flex;
+				align-items: flex-end;
+				padding-bottom: 10px;
+				z-index: 2;
+
+				.food-banner__text {
+					width: 100%;
+					height: $finger-size;
+					display: flex;
+					align-items: center;
+					
+					.food-banner__text-icon {
+						height: calc(#{$finger-size} / 2);
+						margin-right: 5px;
+					}
+					.food-banner__text-icon ~ img {
+						margin-left: 20px;
+					}
+					span {
+						font-family: Asap-SemiBold;
+						font-size: 14px;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+	.rating-wrapper {
+		display: flex;
+		align-items: center;
+	}
+	.total-rating-count {
+		display: inline-block;
+		font-size: 11px;
+		color: $subheading-color;
+		margin-left: 5px;
+	}
+	.restaurant-gravatar {
+		width: 26px;
+		height: 26px;
+		border-radius: 100%;
+		background-color: #000;
+		object-fit: contain;
+		box-shadow: $button-box-shadow #D8D8D8;
+	}
+	.restaurant-name {
+		margin-left: 10px;
+		font-family: Asap-Regular, Helvetica, sans-serif;
+		font-size: 12px;
+		color: $subheading-color;
+	}
+}

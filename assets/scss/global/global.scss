@@ -7,10 +7,17 @@
 	font-weight: 400;
 }
 body {
-	display: grid;
 	background-color: #fbfbfb;
-	padding: 0 calc(#{$finger-size / 2});
-	padding-bottom: 20px;
+	.wrapper,
+	.wrapper-flex {
+		display: grid;
+		padding: 0 calc(#{$finger-size / 2});
+		padding-bottom: 20px;
+	}
+	.wrapper-flex {
+		display: flex;
+		align-items: center;
+	}
 }
 .rating-stars-container {
 	width: 70px;
@@ -124,4 +131,11 @@ body {
 			}
 		}
 	}
+}
+
+.subpage-heading {
+	font-family: Asap-SemiBold, Helvetica, sans-serif;
+	font-size: 24px;
+	color: $heading-color;
+	margin-bottom: 5px;
 }
