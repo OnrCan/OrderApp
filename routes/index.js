@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
           id: 1,
           name: "Gurme Tabağı",
           category: "Sebze",
-          price: 19.00
+          price: parseFloat(19.00).toFixed(2)
         }
       ]
     }

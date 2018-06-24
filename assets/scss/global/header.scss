@@ -13,7 +13,17 @@ header.header-subpage {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
 
+	#hamburger-menu { 
+		justify-content: flex-start;
+		svg {
+			height: 50%;
+		}
+	}
+	
+	.favorites { 
+		justify-content: flex-end; 
 		svg {
 			height: 40%;
 
@@ -22,15 +32,12 @@ header.header-subpage {
 			}
 		}
 	}
-
-	#hamburger-menu { justify-content: flex-start; }
-	
-	.favorites { justify-content: flex-end; }
 	
 	.pagename {
 		color: #272e2a;
 		font-family: Asap-SemiBold, Helvetica, sans-serif;
 		font-size: 1em;
+		text-transform: uppercase;
 	}
 
 	.back-link {
