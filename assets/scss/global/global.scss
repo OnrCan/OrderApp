@@ -139,3 +139,104 @@ body {
 	color: $heading-color;
 	margin-bottom: 5px;
 }
+#sidenav-wrapper.active {
+	transform: translateX(0);
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.5);
+}
+#sidenav-overlay.active {
+	opacity: .5;
+}
+#sidenav-overlay {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #000;
+	opacity: 0;
+	z-index: 9;
+	transition: all .3s ease;
+}
+
+#sidenav-wrapper{
+	transform: translateX(-100%);
+	position: fixed;
+	width: 300px;
+	height: calc(100% - 75px);
+	margin: 0;
+	padding: 0;
+	left: 0;
+	top: 0;
+	padding-bottom: 75px;
+	background: #FFF;
+	overflow-y: auto;
+	will-change: transform;
+	z-index: 99;
+	list-style: none;
+	transition: all .3s ease;
+	a { 
+		text-decoration: none;
+		color: black;
+		font-style: normal;
+	}
+	i.list-icons {
+		margin-right: 24px;
+		width: 24px;
+		vertical-align: sub;
+		box-sizing: border-box;
+	}
+	li {
+		line-height: $finger-size;
+		& > a {
+			padding: 0 24px;
+			font-family: Asap-Regular, Helvetica, sans-serif;
+			display: block;
+		}
+	}
+	.user-info {
+		text-align: center;
+		position: relative;
+		margin-bottom: 10px;
+		padding: calc(#{$finger-size / 2});
+		a { 
+			display: block;
+			color: white;
+			font-family: Asap-Regular, Helvetica, sans-serif;
+		}
+		.background {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: url('https://source.unsplash.com/300x300/?food') center center;
+			background-size: cover;
+			z-index: -1;
+			&::after {
+				content: "";
+				background: #000;
+				opacity: 0.3;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				position: absolute;
+				z-index: -1;   
+			  }
+		}
+		#gravatar {
+			margin-bottom: 10px;
+			img {
+				width: 84px;
+				height: 84px;
+				border-radius: 100%;
+				box-shadow: $image-box-shadow;
+			}
+		}
+	}
+}
+
+.icon-my-orders { content: url('../img/my-orders.svg'); }
+.icon-basket { content: url('../img/basket.svg'); }
+.icon-settings { content: url('../img/settings.svg'); }

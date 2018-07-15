@@ -1,0 +1,22 @@
+ul#sidenav-wrapper
+	li
+		.user-info
+			.background
+			a#gravatar(href="#!")
+				img(src="dist/img/" + user.profilePicture)
+			a#name= user.name + " " + user.surname
+	li
+		a(href="#!")
+			i.list-icons.icon-my-orders
+			= "Siparişlerim"
+	li
+		a(href="#!")
+			i.list-icons.icon-basket
+			= "Sepet"
+	li
+		a(href="#!")
+			i.list-icons.icon-settings
+			= "Ayarlar"
+
+div#sidenav-overlay
+	

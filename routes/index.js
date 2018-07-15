@@ -19,6 +19,11 @@ router.get('/', function(req, res, next) {
           price: parseFloat(19.00).toFixed(2)
         }
       ]
+    },
+    user: {
+      name: 'Michele',
+      surname: 'Johnson',
+      profilePicture: 'gravatar.jpg'
     }
   });
 });

@@ -6,7 +6,7 @@ header.header-subpage {
 	align-items: center;
 	justify-content: space-between;
 	
-	#hamburger-menu,
+	.hamburger-menu,
 	.favorites {
 		width: $finger-size;
 		height: $finger-size;
@@ -15,7 +15,7 @@ header.header-subpage {
 		justify-content: center;
 	}
 
-	#hamburger-menu { 
+	.hamburger-menu { 
 		justify-content: flex-start;
 		svg {
 			height: 50%;
