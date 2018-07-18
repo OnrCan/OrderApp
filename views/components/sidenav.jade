@@ -1,22 +1,22 @@
 ul#sidenav-wrapper
 	li
-		.user-info
+		.user-hero-info
 			.background
-			a#gravatar(href="#!")
+			a#gravatar(href="/")
 				img(src="dist/img/" + user.profilePicture)
 			a#name= user.name + " " + user.surname
 	li
-		a(href="#!")
-			i.list-icons.icon-my-orders
-			= "Siparişlerim"
+		a(href="myorders")
+			i.list-icons.icon.ion-ios-restaurant
+			= "My Orders"
 	li
 		a(href="#!")
-			i.list-icons.icon-basket
-			= "Sepet"
+			i.list-icons.icon.ion-ios-basket
+			= "Card"
 	li
 		a(href="#!")
-			i.list-icons.icon-settings
-			= "Ayarlar"
+			i.list-icons.icon.ion-ios-cog
+			= "Settings"
 
 div#sidenav-overlay
 	

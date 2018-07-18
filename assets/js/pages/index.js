@@ -12,8 +12,10 @@ sidenavOverlay.addEventListener('touchend', closeSideNav)
 function slideOutSideNav(event) {
 	event.preventDefault()
 	sidenavWrapper.classList.add('active');
-	sidenavOverlay.classList.add('active');
 	sidenavOverlay.style.display = 'block';
+	setTimeout(() => {
+		sidenavOverlay.classList.add('active');
+	}, 1)
 }
 
 function closeSideNav(event) {
@@ -23,4 +25,48 @@ function closeSideNav(event) {
 	setTimeout(() => {
 		sidenavOverlay.style.display = 'none';
 	}, 300);
+}
+
+function initializeCollapsible(d) {
+	const collapsibleItem = d.querySelectorAll('.collapsible-item');
+
+	collapsibleItem.forEach((item) => {
+		let collapsibleBody = item.children[3];
+
+		item.addEventListener('click', function () {
+			collapsibleBody.classList.toggle('active');
+		});
+	});
+}
+
+function toggleFavorite(e, toggleButton) {
+	e.stopPropagation();
+	let favoriteIcon = toggleButton.children[0];
+
+	toggleButton.classList.toggle('active');
+	
+	toggleButton.classList.contains('active') 
+		? favoriteIcon.classList.replace('ion-ios-heart-empty', 'ion-ios-heart')
+		: favoriteIcon.classList.replace('ion-ios-heart', 'ion-ios-heart-empty')
+}
+
+function initializeFavoriteButtons() {
+	const favoriteMenuItems = d.querySelectorAll('.favorite-menu')
+	let favoriteButtons = []
+	
+	for (const listItem of favoriteMenuItems) {
+
+		favoriteButtons.push(
+			Array.from(listItem.children)
+					.filter(child => child.classList.contains('food__toggle-favorite'))
+		);
+
+	}
+	console.log(favoriteButtons);
+	favoriteButtons.forEach(_ => {
+		_[0].addEventListener('click', (e) => {
+			toggleFavorite(e, _[0])
+		})
+	})
+	
 }

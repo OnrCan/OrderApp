@@ -1,10 +1,10 @@
 section.featured-menus
 	div.faeatured-card-wrapper
-		img.featured-menu-image(src="dist/img/hamburger.png" alt="Hamburger menu photo, most loved")
+		img.featured-menu-image(src= featuredMenu.img alt="Hamburger menu photo, most loved")
 		div.featured-menu-info
-			h4.menu-name HAMBURGER
+			h4.menu-name= featuredMenu.name
 			//- Rating Stars
 			include ./rating-stars.jade
-			p.menu-short-info Eşsiz mozarella peyniri ve marul salatası ile hamburgeri eşsiz kılan bir menü.
-		a.see-featured-menu(href="/food") Menüyü İncele
+			p.menu-short-info= featuredMenu.descript
+		a.see-featured-menu(href="/food")= featuredMenu.buttonText
 			img(src="dist/img/ios-ionic-right.svg")

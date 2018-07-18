@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	.wrapper
+		//- Header
+		include ./components/header.jade
+
+		//- Favorites
+		.menu-category
+			ul.card-list
+				- for (var i = 0; i < favorites.length; ++i)
+					li.card-list-item.collapsible-item.favorite-menu
+						img.food-list__img(src= favorites[i].img, alt="")
+						.food-list__info
+							h4.food-list__name= favorites[i].name
+							span.food-list__price= "₺" + favorites[i].price
+						button.food__toggle-favorite.active
+							i.icon.ion-ios-heart
+
+						//- Collapsible Body
+						.collapsible-body
+							.wrapper 
+								p.order__created-time= "Order Time: 12:00"
+								p.order__address= "Address: Square, Londan"
+
+	script(src="dist/js/pages/index.js")
+	script(src="dist/js/pages/favorites.js")
+					
+

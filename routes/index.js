@@ -8,9 +8,16 @@ router.get('/', function(req, res, next) {
     page: {
       heading: 'Anasayfa'
     },
+    featuredMenu: {
+			name: 'HAMBURGER',
+			descript: 'Eşsiz mozarella peyniri ve marul salatası ile hamburgeri eşsiz kılan bir menü!',
+      img: './dist/img/hamburger.png',
+      buttonText: 'Menüyü İncele'
+		},
     category: {
       name: 'Ana Yemekler',
       shortSlogan: 'Damak tadınıza göre...',
+      itemShowed: 4,
       foods: [
         {
           id: 1,

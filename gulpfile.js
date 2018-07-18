@@ -19,6 +19,7 @@ gulp.task('sass', function() {
 				browsers: ['last 2 versions'],
 				cascade: false
 			}))
+			.on('error', handleError)
 			.pipe(gulp.dest('./public/dist/css/'));
 });
 
@@ -54,3 +55,8 @@ gulp.task('sass:watch', () => {
 
 // DEFAULT
 gulp.task('default', ['browser-sync', 'sass', 'js']);
+
+function handleError (error) {
+    console.log(error.toString());
+    this.emit('end');
+}
