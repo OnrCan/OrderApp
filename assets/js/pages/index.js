@@ -52,20 +52,20 @@ function toggleFavorite(e, toggleButton) {
 
 function initializeFavoriteButtons() {
 	const favoriteMenuItems = d.querySelectorAll('.favorite-menu')
-	let favoriteButtons = []
+	let favoriteButtons = d.querySelectorAll('.food__toggle-favorite')
 	
-	for (const listItem of favoriteMenuItems) {
+	// for (const listItem of favoriteMenuItems) {
 
-		favoriteButtons.push(
-			Array.from(listItem.children)
-					.filter(child => child.classList.contains('food__toggle-favorite'))
-		);
+	// 	favoriteButtons.push(
+	// 		Array.from(listItem.children)
+	// 				.filter(child => child.classList.contains('food__toggle-favorite'))
+	// 	);
 
-	}
-	console.log(favoriteButtons);
+	// }
+
 	favoriteButtons.forEach(_ => {
-		_[0].addEventListener('click', (e) => {
-			toggleFavorite(e, _[0])
+		_.addEventListener('click', (e) => {
+			toggleFavorite(e, _)
 		})
 	})
 	
