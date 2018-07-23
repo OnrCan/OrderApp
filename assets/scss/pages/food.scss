@@ -80,4 +80,36 @@ section.food-page {
 		font-size: 12px;
 		color: $subheading-color;
 	}
+	.food-description {
+		margin: 0;
+		font-family: Asap-Regular, Helvetica, sans-serif;
+		font-size: 14px;
+		color: rgb(151, 151, 151);
+	}
+	.food-order-properties {
+		margin-top: 0;
+		.property-name {
+			font-family: Asap-Regular, Helvetica, sans-serif;
+			font-size: 14px;
+		}
+		.property-option {
+			grid-column: 2;
+			text-align: right;
+
+			span { font-family: Asap-Regular, Helvetica, sans-serif; color: #525252;}
+
+			button {
+				-webkit-tap-highlight-color: rgba(220,137,71,.2);
+				padding: 3px 15px;
+				border-color: transparent;
+				background: transparent;
+				&:last-of-type { margin-right: -15px; }
+				i {
+					color: $dark-orange;
+					font-size: 20px;
+					margin: auto;
+				}
+			}
+		}
+	}
 }

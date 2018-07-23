@@ -23,6 +23,11 @@ body {
 a {
 	text-decoration: none;
 }
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
 .rating-stars-container {
 	width: 70px;
 	height: 10px;
@@ -70,14 +75,14 @@ a {
 .food__repeat-order {
 	background: $dark-orange;
 	border-color: transparent;
-	border-radius: $card-border-radius;;
+	border-radius: $card-border-radius;
 	box-shadow: 0 2px 5px 0 $dark-orange;
 }
 .food__toggle-favorite {
 	box-shadow: none;
 	background: transparent;
 	
-	i { color: rgb(201, 0, 0); }
+	i { color: $fav-icon-red }
 }
 .menu-category {
 	margin-top: 20px;
@@ -176,6 +181,14 @@ a {
 	font-size: 24px;
 	color: $heading-color;
 	margin-bottom: 5px;
+
+	.food__toggle-favorite {
+		float: right;
+
+		i {
+			color: $fav-icon-red;
+		}
+	}
 }
 #sidenav-wrapper.active {
 	transform: translateX(0);
@@ -279,9 +292,6 @@ a {
 }
 
 .card-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
 	margin-top: 15px;
 	border-radius: $card-border-radius;
 	background: transparent;

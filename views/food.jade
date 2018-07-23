@@ -22,16 +22,52 @@ block content
 
 		.wrapper
 			h1.subpage-heading= page.heading
-
-			.rating-wrapper
+				button.food__toggle-favorite
+					i.icon.ion-ios-heart-empty
 			
+			.rating-wrapper
 				//- Rating
 				include ./components/rating-stars.jade
+
 				span.total-rating-count= "(" + food.totalRatingCount + ")"
 
 		.wrapper-flex
 			img.restaurant-gravatar(src="dist/img/goutte.png", alt="L'Univerre Restaurant Logo")
 			span.restaurant-name= restaurant.name
+		
+		.wrapper
+			ul.food-order-properties.card-list
+				li.card-list-item
+					span.property-name
+						= "Barbecue Sauce"
+					.property-option
+						button.btn-ingredient-option.btn-decrease-ingredient
+							i.icon.ion-ios-remove
+						span.count= "2"
+						button.btn-ingredient-option.btn-add-ingredient
+							i.icon.ion-ios-add
+				li.card-list-item
+					span.property-name
+						= "Chips"
+					.property-option
+						button.btn-ingredient-option.btn-decrease-ingredient
+							i.icon.ion-ios-remove
+						span.count= "2"
+						button.btn-ingredient-option.btn-add-ingredient
+							i.icon.ion-ios-add
+				li.card-list-item
+					span.property-name
+						= "Mustard Sauce"
+					.property-option
+						button.btn-ingredient-option.btn-decrease-ingredient
+							i.icon.ion-ios-remove
+						span.count= "2"
+						button.btn-ingredient-option.btn-add-ingredient
+							i.icon.ion-ios-add.btn-add-ingredient
+					
+			//- p.food-description
+			//- 	="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
 	//- JavaScript
+	script(src="dist/js/main.js")
 	script(src="dist/js/pages/food.js")
