@@ -368,3 +368,28 @@ ul {
 .collapsible-body.active {
 	height: 45px;
 }
+.checkout-total-price {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	padding: 15px 18px;
+	border-bottom: 1px solid rgba(151,151,151,0.21);
+	background: transparent;
+	align-items: flex-end;
+
+	span {
+		font-family: Asap-SemiBold, Helvetica, sans-serif;
+		font-size: 16px;
+	}
+	span.total-amount {
+		color: $dark-orange;
+	}
+}
+.food__add-to-card.wide {
+	padding: 10px;
+	font-family: Asap-SemiBold, Helvetica, sans-serif;
+	color: white;
+	text-align: center;
+	i {
+		margin-left: 10px;
+	}
+}
