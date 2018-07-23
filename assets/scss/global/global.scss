@@ -35,10 +35,13 @@ ul {
 	justify-content: space-between;
 
 	span { 
-		width: 10px;
-		height: 10px;
 
-		img { float: left; }
+		i {
+			display: block; 
+			font-size: 12px;
+			line-height: 12px;
+			color: #DC8948;
+		}
 	}
 }
 .food__add-to-card,
