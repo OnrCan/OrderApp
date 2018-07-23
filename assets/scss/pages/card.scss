@@ -1,0 +1,57 @@
+.wrapper.checkout {
+
+	.food-order-properties {
+		margin-top: 0;
+		.property-name {
+			margin-left: 10px;
+			font-family: Asap-Regular, Helvetica, sans-serif;
+			font-size: 14px;
+		}
+		.property-option {
+			grid-column: 3;
+			text-align: right;
+	
+			span { 
+				font-family: Asap-Regular, Helvetica, sans-serif;
+				color: #525252;
+			}
+	
+			button {
+				-webkit-tap-highlight-color: rgba(220,137,71,.2);
+				padding: 3px 15px;
+				border-color: transparent;
+				background: transparent;
+				&:last-of-type { margin-right: -15px; }
+				i {
+					color: $dark-orange;
+					font-size: 20px;
+					margin: auto;
+				}
+			}
+		}
+	}
+
+	.checkout-order-info {
+		margin: 0;
+		margin-top: 15px;
+		p, h6 { 
+			margin: 0;
+		}
+		.card-list-item {
+			grid-template-columns: auto 1fr;
+			grid-gap: 15px;
+			align-items: flex-start;
+		}
+		.order-info-head {
+			font-family: Asap-SemiBold, Helvetica, sans-serif;
+			font-size: 14px;
+		}
+		.order-info-content {
+			margin-left: 15px;
+			font-family: Asap-Regular, Helvetica, sans-serif;
+			font-size: 12px;
+			color: #525252;
+			white-space: pre;
+		}
+	}
+}

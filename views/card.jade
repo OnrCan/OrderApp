@@ -1,0 +1,43 @@
+extends layout
+
+block content
+	.wrapper.checkout
+		//- Header
+		include ./components/header.jade
+
+		ul.food-order-properties.card-list
+			- for (var i = 0; i < itemsInCard.length; ++i)
+				li.card-list-item
+					img.food-list__img(src= itemsInCard[i].img, alt="")
+					.food-list__info
+						h4.food-list__name= itemsInCard[i].name
+						span.food-list__price= "£" + itemsInCard[i].price
+					.property-option
+						button.btn-ingredient-option.btn-decrease-ingredient
+							i.icon.ion-ios-remove
+						span.count= "1"
+						button.btn-ingredient-option.btn-add-ingredient
+							i.icon.ion-ios-add
+		
+		//- Total Checkout Price
+		.checkout-total-price
+			span= "Total:"
+			span.total-amount= "40.0£"
+
+		ul.checkout-order-info.card-list
+			li.card-list-item
+				h6.order-info-head= "Address:"
+				p.order-info-content= "Via Silvio Spaventa 134, Acqualagna"
+
+				h6.order-info-head= "Card Info:"
+				p.order-info-content
+					| MasterCard
+					| 
+					| 5513 4927 3306 2366
+					| 09/21
+
+		.food__add-to-card.wide
+			= "Checkout"
+	
+	script(src="dist/js/main.js")
+	script(src="dist/js/pages/card.js")
