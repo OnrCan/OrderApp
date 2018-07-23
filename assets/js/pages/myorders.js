@@ -1,5 +1,6 @@
 (function() {
 	
+	initializeSidenav();
 	initializeCollapsible(document);
 	
 }) ()

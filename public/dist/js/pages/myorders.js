@@ -2,5 +2,6 @@
 
 (function () {
 
+	initializeSidenav();
 	initializeCollapsible(document);
 })();
