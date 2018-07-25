@@ -37,26 +37,7 @@ router.get('/', function (req, res, next) {
 				img: './dist/img/menu-3-2x.jpg',
 				price: '19.00',
 				status: 1
-			},
-			{
-				name: 'Gurme Tabağı',
-				img: './dist/img/menu-1.jpg',
-				price: '19.00',
-				status: 1
-			},
-			{
-				name: 'Buffalo Wings',
-				img: './dist/img/menu-2-2x.jpg',
-				price: '19.00',
-				status: 1
-			},
-			{
-				name: 'Pancake',
-				img: './dist/img/menu-3-2x.jpg',
-				price: '19.00',
-				status: 1
 			}
-			
 		],
 		category: {
 			name: 'Favorites',
