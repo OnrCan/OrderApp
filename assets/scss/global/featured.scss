@@ -17,7 +17,7 @@ section.featured-menus {
 		align-items: center;
 		transform: translateX(-18px);
 		
-		img.featured-menu-image { width: 150px; height: 110px; }
+		img.featured-menu-image { max-width: 150px; height: 110px; }
 		a.see-featured-menu { 
 			display: flex;
 			align-items: center;

@@ -4,7 +4,7 @@ section.menu-category.__main-dishes
 		span.category-short-slogan= category.shortSlogan
 	section.foods-list
 		- for (var i = 0; i < category.itemShowed; ++i) {
-			div.food-card
+			a.food-card(href="/food")
 				img.food-card__image(src="dist/img/menu-1.jpg")
 				div.food-card__info
 					h3.food-card__name= category.foods[0].name
