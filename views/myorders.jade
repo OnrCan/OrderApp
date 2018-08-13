@@ -13,9 +13,9 @@ block content
 			header
 				h2.category-name-heading= "Last Orders"
 
-			ul.card-list
+			ul.cart-list
 				- for (var i = 0; i < lastOrders.length; ++i)
-					li.card-list-item.collapsible-item
+					li.cart-list-item.collapsible-item
 						img.food-list__img(src= lastOrders[i].img, alt="")
 						.food-list__info
 							h4.food-list__name= lastOrders[i].name

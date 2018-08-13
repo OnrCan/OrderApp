@@ -1,9 +1,11 @@
 // Initilazes
 const d = document;
 let sidenavWrapper, sidenavOverlay;
+let href
 
 (function() {
 	initializeWaves();
+	initializeCartFloatingButtonAnimation();
 })()
 
 function initializeSidenav() {
@@ -97,12 +99,55 @@ function initializeWaves() {
 
 	waves.forEach((_) => {
 		_.addEventListener('click', (event) => {
-			// event.preventDefault();
-			_.classList.toggle('active');
-
-			setTimeout(() => {
-				_.classList.toggle('active');
-			}, 900)
+			wavesAnimationSetter(event, _)	
 		})
 	})
+}
+
+function wavesAnimationSetter(event, el) {
+
+	event.preventDefault();
+	
+	el.getAttribute('href')
+		? href = el.getAttribute('href') 
+		: href = null
+	
+
+	el.classList.toggle('active');
+
+	setTimeout(() => {
+		el.classList.toggle('active');
+		
+		if(href) { window.location.href = href }
+		
+	}, 700)
+
+}
+
+function initializeCartFloatingButtonAnimation() {
+
+	let lastScrollY = 0
+	let btn = d.querySelector('.cart-floating-button')
+	let isButtonActive = false
+
+	window.addEventListener('scroll', () => {
+		
+		// Scroll Downward
+		if(!isButtonActive && ((lastScrollY + 50) < window.scrollY)) {
+			lastScrollY = window.scrollY;
+			btn.classList.remove('active');
+			return;
+		}
+
+		if(isButtonActive) return;
+
+		// Scroll Upward
+		if(lastScrollY > window.scrollY) {
+			lastScrollY = window.scrollY;
+			btn.classList.add('active');
+			return;
+		}
+
+	})
+	
 }

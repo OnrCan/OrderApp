@@ -4,6 +4,12 @@
 var d = document;
 var sidenavWrapper = void 0,
     sidenavOverlay = void 0;
+var href = void 0;
+
+(function () {
+	initializeWaves();
+	initializeCartFloatingButtonAnimation();
+})();
 
 function initializeSidenav() {
 	var sidenavSlideOut = d.querySelector('#sidenav-out');
@@ -87,18 +93,54 @@ function initializeIngredientOptions() {
 function initializeWaves() {
 	var waves = d.querySelectorAll('.waves');
 
+	//? Burada a elementinin attribute'larini alip redirect islemini setTimeout ile yapabilirim.
+
 	waves.forEach(function (_) {
 		_.addEventListener('click', function (event) {
-			// event.preventDefault();
-			_.classList.toggle('active');
-
-			setTimeout(function () {
-				_.classList.toggle('active');
-			}, 900);
+			wavesAnimationSetter(event, _);
 		});
 	});
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-	initializeWaves();
-});
+function wavesAnimationSetter(event, el) {
+
+	event.preventDefault();
+
+	el.getAttribute('href') ? href = el.getAttribute('href') : href = null;
+
+	el.classList.toggle('active');
+
+	setTimeout(function () {
+		el.classList.toggle('active');
+
+		if (href) {
+			window.location.href = href;
+		}
+	}, 700);
+}
+
+function initializeCartFloatingButtonAnimation() {
+
+	var lastScrollY = 0;
+	var btn = d.querySelector('.cart-floating-button');
+	var isButtonActive = false;
+
+	window.addEventListener('scroll', function () {
+
+		// Scroll Downward
+		if (!isButtonActive && lastScrollY + 50 < window.scrollY) {
+			lastScrollY = window.scrollY;
+			btn.classList.remove('active');
+			return;
+		}
+
+		if (isButtonActive) return;
+
+		// Scroll Upward
+		if (lastScrollY > window.scrollY) {
+			lastScrollY = window.scrollY;
+			btn.classList.add('active');
+			return;
+		}
+	});
+}

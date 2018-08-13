@@ -5,18 +5,18 @@ block content
 		//- Header
 		include ./components/header.jade
 
-		ul.food-order-properties.card-list
+		ul.food-order-properties.cart-list
 			- for (var i = 0; i < itemsInCard.length; ++i)
-				li.card-list-item
+				li.cart-list-item
 					img.food-list__img(src= itemsInCard[i].img, alt="")
 					.food-list__info
 						h4.food-list__name= itemsInCard[i].name
 						span.food-list__price= "£" + itemsInCard[i].price
 					.property-option
-						button.btn-ingredient-option.btn-decrease-ingredient
+						button.btn-ingredient-option.btn-decrease-ingredient.waves.darken
 							i.icon.ion-ios-remove
 						span.count= "1"
-						button.btn-ingredient-option.btn-add-ingredient
+						button.btn-ingredient-option.btn-add-ingredient.waves.darken
 							i.icon.ion-ios-add
 		
 		//- Total Checkout Price
@@ -24,8 +24,8 @@ block content
 			span= "Total:"
 			span.total-amount= "40.0£"
 
-		ul.checkout-order-info.card-list
-			li.card-list-item
+		ul.checkout-order-info.cart-list
+			li.cart-list-item
 				h6.order-info-head= "Address:"
 				p.order-info-content= "Via Silvio Spaventa 134, Acqualagna"
 

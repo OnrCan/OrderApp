@@ -51,7 +51,7 @@ ul {
 .waves.active:before {
 	transform: scale(55);
 	opacity: 0;
-	transition: all .8s ease-out, opacity .6s ease-out .3s;
+	transition: all .5s ease-out, opacity .3s ease-out .5s;
 }
 .rating-stars-container {
 	width: 70px;
@@ -319,14 +319,14 @@ ul {
 	}
 }
 
-.card-list {
+.cart-list {
 	margin-top: 15px;
 	border-radius: $card-border-radius;
 	background: transparent;
 	box-shadow: 0 2px 7px 0 rgba(0,0,0,0.08);
 	overflow: hidden;
 
-	.card-list-item {
+	.cart-list-item {
 		display: grid;
 		grid-template-columns: auto 1fr auto;
 		grid-template-rows: 1fr auto;
@@ -418,4 +418,28 @@ ul {
 	i {
 		margin-left: 10px;
 	}
+}
+.cart-floating-button {
+	position: fixed;
+	margin: 25px;
+	bottom: -110px;
+	right: 0;
+	width: 55px;
+	height: 55px;
+	border-radius: 100%;
+	box-shadow: 0 2px 20px 2px rgba(137, 218, 110, 0.59);
+	background: $light-green;
+	border: none;
+	transition: all .3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	i {
+		font-size: 2rem;
+		color: white;
+	}
+}
+.cart-floating-button.active {
+	transform: translateY(-110px);
 }

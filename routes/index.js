@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
     category: {
       name: 'Ana Yemekler',
       shortSlogan: 'Damak tadınıza göre...',
-      itemShowed: 4,
+      itemShowed: 10,
       foods: [
         {
           id: 1,

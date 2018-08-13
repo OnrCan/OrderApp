@@ -7,9 +7,9 @@ block content
 
 		//- Favorites
 		.menu-category
-			ul.card-list
+			ul.cart-list
 				- for (var i = 0; i < favorites.length; ++i)
-					li.card-list-item.favorite-menu
+					li.cart-list-item.favorite-menu
 						img.food-list__img(src= favorites[i].img, alt="")
 						.food-list__info
 							h4.food-list__name= favorites[i].name
