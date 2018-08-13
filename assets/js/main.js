@@ -2,6 +2,10 @@
 const d = document;
 let sidenavWrapper, sidenavOverlay;
 
+(function() {
+	initializeWaves();
+})()
+
 function initializeSidenav() {
 	const sidenavSlideOut = d.querySelector('#sidenav-out');
 	sidenavWrapper = d.querySelector('#sidenav-wrapper');
@@ -82,6 +86,23 @@ function initializeIngredientOptions() {
 			btn.classList.contains('btn-decrease-ingredient')
 				? optionCountElement.innerHTML = Number(optionCountElement.innerHTML) - 1
 				: optionCountElement.innerHTML = Number(optionCountElement.innerHTML) + 1
+		})
+	})
+}
+
+function initializeWaves() {
+	let waves = d.querySelectorAll('.waves')
+
+	//? Burada a elementinin attribute'larini alip redirect islemini setTimeout ile yapabilirim.
+
+	waves.forEach((_) => {
+		_.addEventListener('click', (event) => {
+			// event.preventDefault();
+			_.classList.toggle('active');
+
+			setTimeout(() => {
+				_.classList.toggle('active');
+			}, 900)
 		})
 	})
 }

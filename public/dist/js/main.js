@@ -83,3 +83,22 @@ function initializeIngredientOptions() {
 		});
 	});
 }
+
+function initializeWaves() {
+	var waves = d.querySelectorAll('.waves');
+
+	waves.forEach(function (_) {
+		_.addEventListener('click', function (event) {
+			// event.preventDefault();
+			_.classList.toggle('active');
+
+			setTimeout(function () {
+				_.classList.toggle('active');
+			}, 900);
+		});
+	});
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+	initializeWaves();
+});
