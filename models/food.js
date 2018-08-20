@@ -4,9 +4,10 @@ const Schema = mongoose.Schema
 let foodSchema = new Schema({
 	name: String,
 	description: String,
+	featured: Boolean,
 	category: String,
 	price: Number,
-	avatar: String,
+	img: {},
 	featuredImg: String,
 	estimatedServiceTimeinMin: String,
 	calorie: Number,

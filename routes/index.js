@@ -1,38 +1,66 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const connectDB = require('../library/connectDB')
+const foodModel = require('../models/food')
+
+let menus = [],
+	featuredMenuDoc = {},
+	categoryMenus = []
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', {
-    title: 'OrderApp',
-    page: {
-      heading: 'Anasayfa'
-    },
-    featuredMenu: {
-			name: 'HAMBURGER',
-			descript: 'Eşsiz mozarella peyniri ve marul salatası ile hamburgeri eşsiz kılan bir menü!',
-      img: './dist/img/hamburger.png',
-      buttonText: 'Menüyü İncele'
-		},
-    category: {
-      name: 'Ana Yemekler',
-      shortSlogan: 'Damak tadınıza göre...',
-      itemShowed: 10,
-      foods: [
-        {
-          id: 1,
-          name: "Gurme Tabağı",
-          category: "Sebze",
-          price: parseFloat(19.00).toFixed(2)
-        }
-      ]
-    },
-    user: {
-      name: 'Michele',
-      surname: 'Johnson',
-      profilePicture: 'gravatar.jpg'
-    }
-  });
-});
+router.get('/', function (req, res, next) {
+
+	getIndex().then(() => {
+		res.render('index', {
+			title: 'OrderApp',
+			page: {
+				heading: 'Anasayfa'
+			},
+			featuredMenu: {
+				name: featuredMenuDoc.name,
+				descript: featuredMenuDoc.description,
+				img: featuredMenuDoc.featuredImg,
+				buttonText: 'Menüyü İncele'
+			},
+			category: {
+				name: 'Ana Yemekler',
+				shortSlogan: 'Damak tadınıza göre...',
+				itemShowed: 10,
+				foods: categoryMenus
+			},
+			user: {
+				name: 'Michele',
+				surname: 'Johnson',
+				profilePicture: 'gravatar.jpg'
+			}
+		});
+	})
+
+}); // router.get('/', function(req, res, next) {
+
+function getIndex(res) {
+	categoryMenus = []
+
+	return new Promise((resolve, reject) => {
+		
+		connectDB.connect()
+	
+		foodModel.find({ }).then(documents => {
+			featuredMenuDoc = documents.filter(menu => menu.featured === true)[0]
+			
+			for (const menu of (documents.filter(doc => doc.featured === false))) {
+				categoryMenus.push({
+					id: menu._id.toString(),
+					name: menu.name,
+					category: menu.category,
+					price: parseFloat(menu.price).toFixed(2),
+					img: menu.img
+				})
+			}
+			console.log(categoryMenus)
+			resolve()
+		})
+	})
+}
 
 module.exports = router;
