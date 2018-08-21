@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 let foodSchema = new Schema({
 	name: String,
+	restAPI: String,
 	description: String,
 	featured: Boolean,
 	category: String,

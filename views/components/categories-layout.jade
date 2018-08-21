@@ -4,14 +4,15 @@ section.menu-category.__main-dishes
 		span.category-short-slogan= category.shortSlogan
 	section.foods-list
 		- for (var i = 0; i < category.foods.length; ++i) {
-			a.food-card(href="/food")
-				img.food-card__image(src= category.foods[i].img["2x"])
+			- let el = category.foods[i]
+			a.food-card(href=`/food/${el.restAPI}`)
+				img.food-card__image(src= el.img["2x"])
 				div.food-card__info
-					h3.food-card__name= category.foods[i].name
-					span.food-card__category= category.foods[i].category
+					h3.food-card__name= el.name
+					span.food-card__category= el.category
 				div.food-card--footer
-					span.food-card__price= "₺" + category.foods[i].price
-					button.food__add-to-card(data-food-id=category.foods[i].id)
+					span.food-card__price= "₺" + el.price
+					button.food__add-to-card(data-food-id=el.id)
 						i.icon.ion-ios-add
 		- }
 		

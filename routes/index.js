@@ -18,6 +18,7 @@ router.get('/', function (req, res, next) {
 			},
 			featuredMenu: {
 				name: featuredMenuDoc.name,
+				restAPI: featuredMenuDoc.restAPI,
 				descript: featuredMenuDoc.description,
 				img: featuredMenuDoc.featuredImg,
 				buttonText: 'Menüyü İncele'
@@ -52,12 +53,12 @@ function getIndex(res) {
 				categoryMenus.push({
 					id: menu._id.toString(),
 					name: menu.name,
+					restAPI: menu.restAPI,
 					category: menu.category,
 					price: parseFloat(menu.price).toFixed(2),
 					img: menu.img
 				})
 			}
-			console.log(categoryMenus)
 			resolve()
 		})
 	})
