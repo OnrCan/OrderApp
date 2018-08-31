@@ -3,9 +3,8 @@ const d = document;
 let sidenavWrapper, sidenavOverlay;
 let href
 
-(function() {
+(function () {
 	initializeWaves();
-	initializeCartFloatingButtonAnimation();
 })()
 
 function initializeSidenav() {
@@ -51,8 +50,8 @@ function toggleFavorite(e, toggleButton) {
 	let favoriteIcon = toggleButton.children[0];
 
 	toggleButton.classList.toggle('active');
-	
-	toggleButton.classList.contains('active') 
+
+	toggleButton.classList.contains('active')
 		? favoriteIcon.classList.replace('ion-ios-heart-empty', 'ion-ios-heart')
 		: favoriteIcon.classList.replace('ion-ios-heart', 'ion-ios-heart-empty')
 }
@@ -60,7 +59,7 @@ function toggleFavorite(e, toggleButton) {
 function initializeFavoriteButtons() {
 	const favoriteMenuItems = d.querySelectorAll('.favorite-menu')
 	let favoriteButtons = d.querySelectorAll('.food__toggle-favorite')
-	
+
 	// for (const listItem of favoriteMenuItems) {
 
 	// 	favoriteButtons.push(
@@ -75,7 +74,7 @@ function initializeFavoriteButtons() {
 			toggleFavorite(e, _)
 		})
 	})
-	
+
 }
 
 function initializeIngredientOptions() {
@@ -99,7 +98,7 @@ function initializeWaves() {
 
 	waves.forEach((_) => {
 		_.addEventListener('click', (event) => {
-			wavesAnimationSetter(event, _)	
+			wavesAnimationSetter(event, _)
 		})
 	})
 }
@@ -107,47 +106,19 @@ function initializeWaves() {
 function wavesAnimationSetter(event, el) {
 
 	event.preventDefault();
-	
+
 	el.getAttribute('href')
-		? href = el.getAttribute('href') 
+		? href = el.getAttribute('href')
 		: href = null
-	
+
 
 	el.classList.toggle('active');
 
 	setTimeout(() => {
 		el.classList.toggle('active');
-		
-		if(href) { window.location.href = href }
-		
+
+		if (href) { window.location.href = href }
+
 	}, 700)
 
-}
-
-function initializeCartFloatingButtonAnimation() {
-
-	let lastScrollY = 0
-	let btn = d.querySelector('.cart-floating-button')
-	let isButtonActive = false
-
-	window.addEventListener('scroll', () => {
-		
-		// Scroll Downward
-		if(!isButtonActive && ((lastScrollY + 50) < window.scrollY)) {
-			lastScrollY = window.scrollY;
-			btn.classList.remove('active');
-			return;
-		}
-
-		if(isButtonActive) return;
-
-		// Scroll Upward
-		if(lastScrollY > window.scrollY) {
-			lastScrollY = window.scrollY;
-			btn.classList.add('active');
-			return;
-		}
-
-	})
-	
 }

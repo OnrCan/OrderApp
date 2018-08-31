@@ -1,58 +1,90 @@
 var express = require('express');
 var router = express.Router();
+var connectDB = require('../library/connectDB')
+var Food = require('../models/food')
+var Order = require('../models/order')
+var User = require('../models/user')
+
+let orders = [],
+	userID = null,
+	user = {},
+	lastOrders = [],
+	featuredOrderID = null,
+	featuredOrder = null
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('myorders', {
-		title: 'OrderApp - My Orders',
-		page: {
-			heading: 'My Orders'
-		},
-		user: {
-			name: 'Michele',
-			surname: 'Johnson',
-			profilePicture: 'gravatar.jpg'
-		},
-		featuredMenu: {
-			name: 'Schnitzel Salad',
-			descript: 'Crunchy, munchy schnitzel and crispy caesar salad, a dynamite duo!',
-			img: './dist/img/lastOrder.png',
-			buttonText: 'Repeat last order'
-		},
-		lastOrders: [
-			{
-				name: 'Gurme Tabağı',
-				img: './dist/img/menu-1.jpg',
-				price: '19.00',
-				status: 0
+
+	getOrders().then(() => {
+		res.render('myorders', {
+			title: 'OrderApp - My Orders',
+			page: {
+				heading: 'My Orders'
 			},
-			{
-				name: 'Buffalo Wings',
-				img: './dist/img/menu-2-2x.jpg',
-				price: '19.00',
-				status: 1
+			user: {
+				name: user.name,
+				profilePicture: user.avatar
 			},
-			{
-				name: 'Pancake',
-				img: './dist/img/menu-3-2x.jpg',
-				price: '19.00',
-				status: 1
+			featuredMenu: {
+				name: featuredOrder.name,
+				descript: featuredOrder.description,
+				img: featuredOrder.img,
+				buttonText: 'Repeat last order'
+			},
+			lastOrders: lastOrders,
+			category: {
+				name: 'Favorites',
+				shortSlogan: 'Most loved ones...',
+				itemShowed: 2,
+				foods: [
+					{
+						id: 1,
+						name: "Gurme Tabağı",
+						category: "Sebze",
+						price: parseFloat(19.00).toFixed(2)
+					}
+				]
 			}
-		],
-		category: {
-			name: 'Favorites',
-			shortSlogan: 'Most loved ones...',
-			itemShowed: 2,
-			foods: [
-				{
-					id: 1,
-					name: "Gurme Tabağı",
-					category: "Sebze",
-					price: parseFloat(19.00).toFixed(2)
-				}
-			]
-		}
-	});
+		});
+
+	})
 });
+
+function getOrders() {
+	user = {},
+	lastOrders = [],
+	featuredOrderID = null,
+	featuredOrder = null
+
+	return new Promise((resolve, reject) => {
+		connectDB.connect()
+
+		User.findOne({ "mail": "onrcan.ozkan@gmail.com" })
+			.then(result => {
+				user = result
+				featuredOrderID = result.lastOrder
+
+				Order.find({
+					"user_id": user._id.toString()
+				}).then((results) => {
+					results.forEach(order => {
+						Food.findById(order.food_id).then((food) => {
+							
+							(food._id == featuredOrderID)
+								? featuredOrder = food
+								: lastOrders.push({
+									id: food._id.toString(),
+									name: food.name,
+									img: food.img["2x"],
+									price: parseFloat(food.price).toFixed(2),
+									status: 1
+								})
+						})
+					})
+					// ! resolve nereye konulacak çozemiyorum
+				})
+			})
+	})
+}
 
 module.exports = router;

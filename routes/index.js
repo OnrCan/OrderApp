@@ -43,12 +43,12 @@ function getIndex(res) {
 	categoryMenus = []
 
 	return new Promise((resolve, reject) => {
-		
+
 		connectDB.connect()
-	
-		foodModel.find({ }).then(documents => {
+
+		foodModel.find({}).then(documents => {
 			featuredMenuDoc = documents.filter(menu => menu.featured === true)[0]
-			
+
 			for (const menu of (documents.filter(doc => doc.featured === false))) {
 				categoryMenus.push({
 					id: menu._id.toString(),

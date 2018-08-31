@@ -21,11 +21,11 @@ block content
 							h4.food-list__name= lastOrders[i].name
 							span.food-list__price= "₺" + lastOrders[i].price
 						if (lastOrders[i].status == 0)
-							button.food__on-the-way(data-food-id=category.foods[0].id)
+							button.food__on-the-way(data-food-id=lastOrders[i].id)
 								i.icon.ion-ios-timer
 								span= "Preparing..."
-						else
-							button.food__repeat-order(data-food-id=category.foods[0].id)
+						else if ( lastOrders[i].status == 1 )
+							button.food__repeat-order(data-food-id=lastOrders[i].id)
 								i.icon.ion-ios-repeat
 						
 						//- Collapsible Body
