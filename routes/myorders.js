@@ -28,7 +28,7 @@ router.get('/', function (req, res, next) {
 			featuredMenu: {
 				name: featuredOrder.name,
 				descript: featuredOrder.description,
-				img: featuredOrder.img,
+				img: featuredOrder.img['2x'],
 				buttonText: 'Repeat last order'
 			},
 			lastOrders: lastOrders,
@@ -52,38 +52,44 @@ router.get('/', function (req, res, next) {
 
 function getOrders() {
 	user = {},
-	lastOrders = [],
-	featuredOrderID = null,
-	featuredOrder = null
+		lastOrders = [],
+		featuredOrderID = null,
+		featuredOrder = null
 
 	return new Promise((resolve, reject) => {
-		connectDB.connect()
+		connectDB.connect().then(() => {
+			User.findOne({ "mail": "onrcan.ozkan@gmail.com" })
+				.then(result => {
+					user = result
+					featuredOrderID = result.lastOrder
 
-		User.findOne({ "mail": "onrcan.ozkan@gmail.com" })
-			.then(result => {
-				user = result
-				featuredOrderID = result.lastOrder
+					Order.find({
+						"user_id": user._id.toString()
+					}).then((results) => {
+						let foodIDs = results.map(result => result.food_id)
+						console.log('foodIDs', foodIDs);
 
-				Order.find({
-					"user_id": user._id.toString()
-				}).then((results) => {
-					results.forEach(order => {
-						Food.findById(order.food_id).then((food) => {
-							
-							(food._id == featuredOrderID)
-								? featuredOrder = food
-								: lastOrders.push({
-									id: food._id.toString(),
-									name: food.name,
-									img: food.img["2x"],
-									price: parseFloat(food.price).toFixed(2),
-									status: 1
-								})
+						Food.find({
+							'_id': { $in : foodIDs}
+						}).then((foods) => {
+							foods.forEach(food => {
+								(food._id == featuredOrderID)
+									? featuredOrder = food
+									: lastOrders.push({
+										id: food._id.toString(),
+										name: food.name,
+										img: food.img["2x"],
+										price: parseFloat(food.price).toFixed(2),
+										status: 1
+									})
+							})
+							resolve()
 						})
+						// ! resolve nereye konulacak çozemiyorum
 					})
-					// ! resolve nereye konulacak çozemiyorum
 				})
-			})
+		})
+
 	})
 }
 

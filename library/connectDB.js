@@ -7,9 +7,13 @@ mongoose.Promise = global.Promise
 mongoose.connect('mongodb://127.0.0.1:27017/orderapp', { useNewUrlParser: true })
 
 exports.connect = () => {
-	mongoose.connection.once('open', () => {
-		console.log('Connection has been established!')
-	}).on('error', (err) => {
-		console.error(`Connection error: ${err}`)
+	return new Promise((resolve, reject) => {
+		mongoose.connection.once('open', () => {
+			console.log('Connection has been established!')
+		}).on('error', (err) => {
+			console.error(`Connection error: ${err}`)
+			reject()
+		})
+		resolve()
 	})
 }

@@ -3,8 +3,8 @@ ul#sidenav-wrapper
 		.user-hero-info
 			.background
 			a#gravatar(href="/")
-				img(src="dist/img/" + user.profilePicture)
-			a#name= user.name + " " + user.surname
+				img(src= user.profilePicture)
+			a#name= user.name
 	li
 		a.waves.darken(href="myorders")
 			i.list-icons.icon.ion-ios-restaurant
